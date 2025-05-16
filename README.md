@@ -1,65 +1,177 @@
-# PatientConnect App
+# 🏥 PatientConnect App
 
-PatientConnect is a comprehensive, user-friendly healthcare app designed to empower patients by integrating essential healthcare interactions into a single, intuitive platform. From appointment scheduling and managing medical records to seamless communication with healthcare providers, PatientConnect ensures a smooth and informed patient journey. Featuring a multilingual conversational chatbot with voice capabilities, PatientConnect is accessible and easy to use for everyone.
+A comprehensive, user-friendly healthcare portal built with **Streamlit** and **MongoDB**, designed to streamline patient and administrator interactions — from booking appointments to managing medical records, billing, and AI-powered support.
 
-## 🌟 Features
+> "One app to connect patients, doctors, and healthcare services — with intelligence."
 
-### 🔍 Doctor Management
-- **Doctor Discovery**: Search and explore detailed profiles of healthcare providers, including qualifications, specialties, availability, and patient reviews.
-- **Favorites & History**: Keep track of your preferred doctors and review past consultations.
+---
 
-### 📅 Appointment Management
-- **Appointment Scheduler**: Schedule, reschedule, or cancel appointments effortlessly.
-- **Chatbot Integration**: Multilingual AI-powered chatbot with voice input/output for conversational appointment scheduling.
-- **Upcoming Appointments**: Real-time reminders via WhatsApp and Email.
+## 🚀 Features
 
-### 📚 Comprehensive Medical History
-- **Past Consultations**: Maintain detailed records of previous visits, including notes and prescriptions.
-- **Prescription Management**: Securely upload and manage digital prescriptions.
-- **Disease & Injury Documentation**: Upload and access medical images, X-rays, and detailed reports.
-- **Lab & Diagnostic Reports**: Easily view and organize your test results and diagnostic reports.
+### 🩺 Patient Portal
 
-### 💳 Billing & Payments
-- **Billing Overview**: Transparent management of healthcare expenses.
-- **Secure Payment Gateway**: Convenient online payment processing.
-- **Billing History & Insurance Claims**: Easy tracking of past transactions and claims.
-- **Payment Notifications**: Timely reminders via WhatsApp and Email.
+* **Doctor Discovery & Favorites**
 
-### 📢 Patient Support & Communication
-- **Issue & Grievance Portal**: Easily submit concerns, complaints, or feedback.
-- **Ticket Management System**: Monitor the progress of your queries and issues.
-- **Secure Messaging**: Direct and secure communication with your healthcare providers.
-- **Support Notifications**: Real-time updates on issue resolution via WhatsApp and Email.
+  * Search doctors by name or specialty
+  * Add to favorites & initiate secure messaging
+  * WhatsApp integration for direct contact
+* **Appointment Management**
 
-### 🤖 GenAI-Powered Assistance
-- **Document Summarization**: Simplify medical documentation for easier understanding.
-- **Information Extraction**: Highlight key information from medical records without predictive analysis.
-- **Interactive Medical Record Queries**: Use natural language to engage with and understand your medical history.
+  * Schedule, view, and manage appointments
+  * Real-time status updates (Scheduled/Cancelled)
+* **Medical Records Hub**
 
-### 🔔 Notifications & Reminders
-- **Real-time Alerts**: Instant updates on appointments, payments, lab results, and more via WhatsApp and Email.
-- **Medication Reminders**: Automated alerts to manage your medications effectively.
+  * Upload prescriptions, lab reports, images
+  * AI-generated summaries of uploaded records
+  * Preview and manage documents
+* **Billing & Payments**
 
-### 🌐 Multilingual & Accessibility
-- **Multiple Languages**: Accessible user interface supporting various languages.
-- **Voice Interaction**: Intuitive voice-based chatbot interactions to accommodate all users.
+  * View billing history with status tracking (Due/Paid)
+  * Simple UI for payment follow-ups
+* **Insurance Claims**
 
-### 🔐 Privacy & Security
-- **Secure Data Handling**: Industry-standard encryption to protect patient information.
-- **Privacy Controls**: Explicit control over data sharing preferences.
+  * Track and add insurance claim records
+* **Secure Messaging**
 
-### 📱 Cross-Platform Availability
-- **Mobile & Web Compatibility**: Smooth user experience across multiple devices and platforms.
+  * Chat with doctors via secure messages
+  * Inbox with read/unread tracking
+* **Support Tickets**
 
-### 📍 Emergency & Location Services
-- **Nearby Healthcare Facilities**: Quickly locate nearby hospitals, clinics, and pharmacies.
-- **Emergency Contacts**: Immediate access to emergency helplines and contacts.
+  * Raise issues, feedback, and view responses
+* **Emergency & Location Services**
 
-### 📈 Wellness & Educational Resources
-- **Health Resources**: Access credible, informative health articles and resources.
-- **Patient Education**: Engage with curated educational content to support your wellness journey.
+  * Quick access to emergency contacts
+  * AI-assisted nearby hospital finder
+
+### 🛠️ Admin Portal
+
+* **Dashboard & Metrics**
+
+  * KPIs for revenue, appointments, tickets, patients
+  * Doctor-wise performance charts (Revenue, Appointments)
+* **Doctor Management**
+
+  * Add/Delete doctor profiles with avatar generation
+* **Patient Management**
+
+  * Add and manage patient credentials and profiles
+* **Billing Administration**
+
+  * Add bills, update statuses, track payments
+* **Support Ticket Handling**
+
+  * View, respond, and update patient tickets with status control
+
+### 🤖 AI Features (Pluggable LLM Service)
+
+* LLM-powered chatbot for patient support
+* AI-generated summaries of medical records & files
+* Location-based services using AI context queries
+* Voice output via browser SpeechSynthesis
+
+---
+
+## 🧑‍💻 Tech Stack
+
+* **Frontend**: [Streamlit](https://streamlit.io/)
+* **Backend Database**: [MongoDB](https://www.mongodb.com/)
+* **AI Services**: External LLM service (`llm_service.py`)
+* **Security**: [passlib bcrypt](https://passlib.readthedocs.io/en/stable/)
+* **Visualization**: Matplotlib, Pandas
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/yourusername/patientconnect.git
+cd patientconnect
+pip install -r requirements.txt
+```
+
+Ensure MongoDB is running locally or update the `MONGODB_URI` environment variable for production use.
+
+---
+
+## 🏃 Running the App
+
+```bash
+streamlit run patientconnect.py
+```
+
+* The app will launch at `http://localhost:8501`.
+* Admin hardcoded credentials: `admin / adminpass` (for demo purposes).
+* Patient login is based on MongoDB user collection.
+
+---
+
+## 🗂 Project Structure
+
+```
+📦 patientconnect/
+ ┣ 📄 patientconnect.py      # Main Streamlit Application
+ ┣ 📄 llm_service.py         # AI integration functions (pluggable)
+ ┣ 📄 requirements.txt       # Python dependencies
+ ┗ 📁 /tmp/patientconnect/   # Temporary uploads directory
+```
+
+---
+
+## 🔐 Environment Variables
+
+* `MONGODB_URI` — Connection string for MongoDB (default: localhost)
+
+---
+
+## 📊 Sample Data Schema
+
+### Users (Patients & Admins)
+
+```json
+{
+  "username": "john_doe",
+  "hashed_password": "bcrypt-hash",
+  "role": "patient",
+  "patient_id": "p123",
+  "profile": { "name": "John Doe", "age": 30, "gender": "Male" }
+}
+```
+
+### Doctors
+
+```json
+{
+  "id": "d001",
+  "name": "Dr. Jane Smith",
+  "specialty": "Cardiologist",
+  "rating": 4.5,
+  "photo_url": "https://api.dicebear.com/7.x/avataaars/svg?seed=JaneSmith",
+  "email": "dr.jane@example.com",
+  "phone": "+91-9876543210"
+}
+```
+
+---
+
+## 📝 TODOs & Roadmap
+
+* [ ] Role-based access control (RBAC)
+* [ ] Integration with real payment gateways
+* [ ] Notification services (SMS, WhatsApp APIs)
+* [ ] OAuth login & JWT session handling
+* [ ] Production deployment with Docker & Nginx
+* [ ] Audit logs for admin actions
+
+---
+
+## ⚠️ Disclaimer
+
+This application is a **demo project** for learning and prototype purposes. Do not use in production without security hardening, authentication improvements, and compliance checks.
+
+---
+
+## 💙 Contributing
+
+PRs are welcome! Feel free to fork & enhance the PatientConnect App.
 
 
-
-## 📜 License
-This project is licensed under the MIT License – see the `LICENSE` file for details.
