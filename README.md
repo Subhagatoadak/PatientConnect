@@ -72,11 +72,5 @@ PatientConnect is a comprehensive, user-friendly healthcare app designed to empo
 - **Chatbot**: OpenAI GPT-4 (with voice interaction capabilities)
 - **Deployment**: Docker, Kubernetes
 
-## 📖 Documentation
-Comprehensive documentation and developer guides available in the `/docs` directory.
-
-## 🤝 Contribution
-Contributions are welcome! Please see our guidelines in `CONTRIBUTING.md`.
-
 ## 📜 License
 This project is licensed under the MIT License – see the `LICENSE` file for details.
