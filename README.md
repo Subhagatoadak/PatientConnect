@@ -59,24 +59,7 @@ PatientConnect is a comprehensive, user-friendly healthcare app designed to empo
 - **Health Resources**: Access credible, informative health articles and resources.
 - **Patient Education**: Engage with curated educational content to support your wellness journey.
 
-## 🚀 Getting Started
-1. Clone the repository.
-2. Install dependencies using `npm install`.
-3. Configure environment variables as described in `.env.example`.
-4. Launch the application with `npm start`.
 
-## 🛠️ Technologies Used
-- **Frontend**: React.js, Tailwind CSS
-- **Backend**: FastAPI, Python
-- **Database**: PostgreSQL, MongoDB
-- **Chatbot**: OpenAI GPT-4 (with voice interaction capabilities)
-- **Deployment**: Docker, Kubernetes
-
-## 📖 Documentation
-Comprehensive documentation and developer guides available in the `/docs` directory.
-
-## 🤝 Contribution
-Contributions are welcome! Please see our guidelines in `CONTRIBUTING.md`.
 
 ## 📜 License
 This project is licensed under the MIT License – see the `LICENSE` file for details.
